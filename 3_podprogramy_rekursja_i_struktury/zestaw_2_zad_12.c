@@ -24,6 +24,13 @@ void wypiszTabliceTowarow(struct towar TablicaTowarow[]){
             printf("%d\t\t%s\t\t%d\t\t%d\n", i, TablicaTowarow[i].NazwaTowaru, TablicaTowarow[i].LiczbaSztuk, TablicaTowarow[i].Cena1Sztuki);
         }
     }
+    printf("\n");
+}
+
+void zmienTowar(struct towar* TablicaTowarow, int pozycja){
+    strcpy(TablicaTowarow[pozycja].NazwaTowaru, "elo makrelo");
+    TablicaTowarow[pozycja].LiczbaSztuk = 124;
+    TablicaTowarow[pozycja].Cena1Sztuki = 6366;
 }
 
 int main()
@@ -33,19 +40,24 @@ int main()
     char action = 'q';
 
     wyzerujTabliceTowarow(TablicaTowarow);
-    wypiszTabliceTowarow(TablicaTowarow);
 
     while(1)
     {
-        printf("action> ");
+        printf("----------------------------------------------------------------------\naction> ");
         scanf(" %c", &action);
 
         printf("chosen action: %c\n\n", action);
 
-
-
         if(action == 'q' || action == 'Q'){
             break;
+        }
+
+        if(action == 'w' || action == 'W'){
+            wypiszTabliceTowarow(TablicaTowarow);
+        }
+
+        if(action == 'n' || action == 'N'){
+            zmienTowar(TablicaTowarow, 1);
         }
     }
 
