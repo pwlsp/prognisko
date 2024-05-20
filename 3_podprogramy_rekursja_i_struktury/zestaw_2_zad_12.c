@@ -62,8 +62,17 @@ void zmienTowar(struct towar *TablicaTowarow, int pozycja)
     TablicaTowarow[pozycja].Cena1Sztuki = cena;
 }
 
-int sumaTowarow(struct towar *TablicaTowarow){
-    
+double sumaTowarow(struct towar TablicaTowarow[]){
+    double suma = 0.0;
+    for (int i = 0; i < 50; i++)
+    {
+        if (strcmp(TablicaTowarow[i].NazwaTowaru, ""))
+        {
+            suma += TablicaTowarow[i].LiczbaSztuk * TablicaTowarow[i].Cena1Sztuki;
+        }
+    }
+
+    return suma;
 }
 
 int main()
@@ -106,7 +115,9 @@ int main()
 
         if (action == 'r' || action == 'R')
         {
-            // break;
+            sumaTowarow(TablicaTowarow);
+            double wynik = sumaTowarow(TablicaTowarow);
+            printf("Suma wartości wszystkich towarów = %.2f\n", wynik);
         }
     }
 
