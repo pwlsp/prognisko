@@ -25,7 +25,7 @@ int main() {
             fscanf(file, "%d", &A);
             matrix[i][j] = (pow(sin(A), 2)-3)/sqrt(A+1);
             if(A <= -1) matrix[i][j] = 3.31;
-            printf("for %d:       %f / %f = %f but %f\nsin(A) = %f\npow() = %f\n", A, (pow(sin(A), 2)-3), sqrt(A+1), (pow(sin(A), 2)-3)/sqrt(A+1), matrix[i][j], sin(A), pow(sin(A), 2));
+            // printf("for %d:       %f / %f = %f but %f\nsin(A) = %f\npow() = %f\n", A, (pow(sin(A), 2)-3), sqrt(A+1), (pow(sin(A), 2)-3)/sqrt(A+1), matrix[i][j], sin(A), pow(sin(A), 2));
             // matrix[i][j] = A;
         }
     }
@@ -33,7 +33,6 @@ int main() {
     fclose(file);
 
     // Wypisywanie pobranej macierzy
-    printf("Matrix %d x %d:\n", n, m);
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             printf("%f ", matrix[i][j]);
